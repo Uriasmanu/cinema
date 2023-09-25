@@ -23,12 +23,16 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         int idade;
         String otimo, ruim, pessimo, opniao;
-        double mediaRuim, porcentagemPessimo;
+        double mediaRuim;
         int contador = 1;
         int quantidadeOtimo = 0;
+        int somaIdade = 0;
+        int quantidadeRuim = 0;
+        int quantidadePessimo = 0;
+        double porcentagemPessimo = 0;
    
 
-      while(contador <= 2){
+      while(contador <= 40){
         System.out.println("Cliente " + contador + " digite a sua idade: ");
         idade = scanner.nextInt();
 
@@ -37,10 +41,21 @@ public class App {
 
         if(opniao.equals("A")){
             quantidadeOtimo ++;
+        }else if(opniao.equals("D")){
+          quantidadeRuim ++;
+          somaIdade += idade;
+        }else if(opniao.equals("E")){
+          quantidadePessimo ++;
         }
 
         contador++;
       }
+
+      mediaRuim = (quantidadeRuim > 0) ? (double) somaIdade / quantidadeRuim : 0;
+      porcentagemPessimo = quantidadePessimo * 100 / (contador - 1);
+
        System.out.println("Dente os " + (contador-1) + " clentes, " + quantidadeOtimo + " avaliaram o filme como ótimo");
+       System.out.println("Média de idade das pessoas que responderam 'ruim': " + mediaRuim);
+       System.out.println("A porcentagem de respostas 'péssimo' é de: " + porcentagemPessimo + "%");
     }
 }
