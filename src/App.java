@@ -35,12 +35,12 @@ public class App {
         System.out.println("Por gentileza, informe a sua opinião em relação ao filme, segundo as seguintes notas:" + "\n A - Otimo" + "\n B - Bom " + "\n C - Regular" + "\n D - Ruim" + "\n E - Péssimo");
         opniao = scanner.next();
 
-        if(opniao == "A"){
+        if(opniao.equals("A")){
             quantidadeOtimo ++;
         }
 
-        contador = contador + 1;
+        contador++;
       }
-       System.out.println("Dente os " + contador + " clentes, " + quantidadeOtimo + " avaliaram o filme como ótimo");
+       System.out.println("Dente os " + (contador-1) + " clentes, " + quantidadeOtimo + " avaliaram o filme como ótimo");
     }
 }
